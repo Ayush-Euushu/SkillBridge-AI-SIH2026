@@ -1,0 +1,353 @@
+/* ==========================================================================
+   INTERACTIVE SMARTPHONE SIMULATOR & PHONE MOCKUP STYLES
+   "woo app kisika mobile open hona chihye"
+   ========================================================================== */
+
+/* Split Layout Container on the Auth Gateway */
+.auth-split-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.auth-portal-col {
+  flex: 1;
+  max-width: 540px;
+}
+
+.auth-phone-col {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-simulator-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.phone-simulator-badge {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+}
+
+/* Realistic Smartphone Device Chassis */
+.smartphone-frame {
+  width: 320px;
+  height: 640px;
+  background: #0a0e17;
+  border-radius: 46px;
+  box-shadow: 
+    0 0 0 4px #26334d,
+    0 0 0 7px #131b2c,
+    0 25px 60px -10px rgba(0, 0, 0, 0.65),
+    0 0 40px rgba(2, 132, 199, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s ease;
+}
+
+.smartphone-frame.phone-vibrating {
+  animation: phoneShake 0.4s ease-in-out;
+  box-shadow: 
+    0 0 0 4px #0284c7,
+    0 0 0 8px #38bdf8,
+    0 25px 70px -10px rgba(2, 132, 199, 0.5);
+}
+
+@keyframes phoneShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px) rotate(-1deg); }
+  40%, 80% { transform: translateX(6px) rotate(1deg); }
+}
+
+/* Smartphone Screen Glass */
+.phone-screen {
+  flex: 1;
+  background: linear-gradient(180deg, #090d16 0%, #0f172a 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Top Dynamic Island & Speaker Notch */
+.phone-notch-bar {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  position: relative;
+  z-index: 10;
+}
+
+.dynamic-island-pill {
+  width: 90px;
+  height: 22px;
+  background: #000000;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.dynamic-island-pill.expanded {
+  width: 200px;
+  height: 32px;
+  background: #091220;
+}
+
+.island-camera-dot {
+  width: 10px;
+  height: 10px;
+  background: #0b172a;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.island-sensor-dot {
+  width: 6px;
+  height: 6px;
+  background: #1e293b;
+  border-radius: 50%;
+}
+
+.phone-icons-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+}
+
+/* Smartphone Inner Content: Messages App Interface */
+.phone-inner-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+}
+
+.messages-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.messages-contact-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff7700, #00b050);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.contact-name-row {
+  line-height: 1.15;
+}
+
+.contact-sender-name {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.contact-sender-sub {
+  font-size: 0.68rem;
+  color: #38bdf8;
+}
+
+/* Chat Messages Bubble Area */
+.messages-chat-scroll {
+  flex: 1;
+  padding: 18px 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+}
+
+.chat-timestamp-badge {
+  text-align: center;
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.incoming-sms-bubble {
+  align-self: flex-start;
+  max-width: 92%;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  animation: bubblePop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes bubblePop {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.sms-gov-tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #10b981;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sms-body-paragraph {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.sms-pin-banner {
+  background: rgba(2, 132, 199, 0.2);
+  border: 1.5px dashed #38bdf8;
+  border-radius: 10px;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.sms-pin-digits {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #38bdf8;
+}
+
+.btn-phone-copy-otp {
+  background: #00b050;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.btn-phone-copy-otp:active {
+  transform: scale(0.95);
+}
+
+.sms-time-sub {
+  font-size: 0.62rem;
+  color: #94a3b8;
+  text-align: right;
+}
+
+/* Phone Bottom Home Bar */
+.phone-bottom-home {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-home-indicator {
+  width: 120px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
+/* Waiting / Standby state in phone screen */
+.phone-standby-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #94a3b8;
+}
+
+.standby-phone-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+.standby-phone-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+}
+
+.standby-phone-sub {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* Responsive adjustment for Mobile Phone simulator */
+@media (max-width: 960px) {
+  .auth-split-layout {
+    flex-direction: column;
+  }
+  .auth-phone-col {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

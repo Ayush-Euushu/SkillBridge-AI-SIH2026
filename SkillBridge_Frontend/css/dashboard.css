@@ -1,0 +1,733 @@
+/* ==========================================================================
+   SPARS DASHBOARD STYLES (BESPOKE STUDENT, INDUSTRY & ACADEMIA PORTALS)
+   ========================================================================== */
+
+/* Main App Navigation Header */
+.main-app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--header-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 12px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: var(--shadow-subtle);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.brand-emblem-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon-container {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 10px var(--border-glow));
+}
+
+.brand-headers-text h1 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-headers-text p {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Central Stakeholder Navigation Tabs */
+.role-pills-switcher {
+  display: flex;
+  background: var(--bg-surface-subtle);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-subtle);
+  gap: 4px;
+}
+
+.role-pill-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s var(--spring-easing);
+}
+
+.role-pill-tab:hover {
+  color: var(--text-primary);
+}
+
+.role-pill-tab.active {
+  background: var(--bg-surface-elevated);
+  color: var(--cyber-blue);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Header Right Utility Controls */
+.header-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-icon-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-icon-circle:hover {
+  border-color: var(--cyber-blue);
+  color: var(--cyber-blue);
+  background: var(--bg-surface-elevated);
+  transform: translateY(-1px);
+}
+
+/* User Profile Badge */
+.user-identity-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 6px 8px;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+.user-avatar-hex {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sih-saffron), var(--cyber-blue));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.user-chip-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.user-chip-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.user-chip-sub {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.btn-session-exit {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.btn-session-exit:hover {
+  color: var(--cyber-rose);
+}
+
+/* Hackathon Subheader Ticker */
+.sih-live-ticker {
+  background: linear-gradient(90deg, rgba(255, 119, 0, 0.08), rgba(2, 132, 199, 0.08), rgba(0, 176, 80, 0.08));
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.ticker-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticker-item-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text-muted);
+}
+
+/* Dashboard Master Container */
+.dashboard-canvas {
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 28px 70px;
+  position: relative;
+  z-index: 1;
+}
+
+.view-panel {
+  display: none;
+  animation: panelFadeIn 0.3s ease forwards;
+}
+
+.view-panel.active {
+  display: block;
+}
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero Section */
+.portal-hero-card {
+  padding: 30px 34px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-hero-card::after {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--border-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-main-title h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.hero-main-title p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  max-width: 680px;
+  line-height: 1.5;
+}
+
+.hero-stats-row {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-counter-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  text-align: center;
+  min-width: 115px;
+}
+
+.hero-counter-num {
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-family: var(--font-display);
+  color: var(--cyber-blue);
+}
+
+.hero-counter-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Grids */
+.grid-2col-layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 26px;
+  margin-bottom: 30px;
+}
+
+.grid-4col-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+/* Card Header */
+.card-top-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.title-icon-bundle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.title-icon-bundle h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* AI Skill Gap Engine Card */
+.skill-engine-box {
+  padding: 28px;
+}
+
+.skill-role-selector-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.custom-role-dropdown {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.custom-role-dropdown:focus {
+  border-color: var(--cyber-blue);
+  box-shadow: 0 0 0 3px var(--border-glow);
+}
+
+.radial-visual-tray {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-bottom: 24px;
+}
+
+.radial-gauge-container {
+  position: relative;
+  width: 135px;
+  height: 135px;
+  flex-shrink: 0;
+}
+
+.gauge-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.gauge-bg-track {
+  fill: none;
+  stroke: var(--border-medium);
+  stroke-width: 3.6;
+}
+
+.gauge-progress-bar {
+  fill: none;
+  stroke-width: 3.6;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.8s ease, stroke 0.4s ease;
+}
+
+.gauge-center-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gauge-val-big {
+  font-size: 1.7rem;
+  font-weight: 900;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+
+.gauge-val-sub {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.gauge-narrative {
+  flex: 1;
+}
+
+.gauge-narrative h4 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.gauge-narrative p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+/* Skill Comparison Columns */
+.skill-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.skill-column-box {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.skill-col-heading {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.skill-tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+}
+
+.skill-chip.mastered {
+  background: rgba(0, 176, 80, 0.12);
+  color: #00b050;
+  border: 1px solid rgba(0, 176, 80, 0.3);
+}
+
+.skill-chip.missing {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* Pipeline Tracker */
+.pipeline-steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.pipeline-card-stage {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.pipeline-card-stage.active {
+  border-color: var(--cyber-blue);
+  background: rgba(2, 132, 199, 0.06);
+}
+
+.pipeline-card-stage.success {
+  border-color: var(--sih-green);
+  background: rgba(0, 176, 80, 0.06);
+}
+
+.stage-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.stage-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.stage-count-metric {
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin-top: 8px;
+}
+
+/* Opportunities Grid */
+.job-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 22px;
+}
+
+.job-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--cyber-blue);
+}
+
+.job-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.job-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.job-meta-text {
+  flex: 1;
+}
+
+.job-role-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.job-company-name {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.job-meta-tags {
+  display: flex;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.job-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.job-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.job-stipend-amount {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--sih-green);
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .grid-2col-layout {
+    grid-template-columns: 1fr;
+  }
+  .grid-4col-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-app-nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 18px;
+  }
+  .role-pills-switcher {
+    overflow-x: auto;
+    width: 100%;
+    justify-content: center;
+  }
+  .portal-hero-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .radial-visual-tray {
+    flex-direction: column;
+    text-align: center;
+  }
+  .skill-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+  .pipeline-steps-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ==========================================================================
+   STUDENT DBMS PROFILE RECORD CARD
+   ========================================================================== */
+
+.student-profile-dbms-card {
+  margin-bottom: 20px;
+  border-left: 3px solid #f97316;
+}
+
+.profile-dbms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 20px;
+  margin: 16px 0 14px;
+}
+
+@media (max-width: 900px) {
+  .profile-dbms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-dbms-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.profile-dbms-field {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  transition: border-color 0.2s;
+}
+
+.profile-dbms-field:hover {
+  border-color: rgba(249,115,22,0.4);
+}
+
+.profile-dbms-label {
+  font-size: 0.70rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.profile-dbms-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.profile-dbms-value.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--cyber-blue);
+}
+
+.profile-sql-snippet {
+  background: #0f172a;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  border: 1px dashed rgba(125,211,252,0.2);
+  line-height: 1.5;
+}
+
+[data-theme="light"] .profile-sql-snippet {
+  background: #1e293b;
+}

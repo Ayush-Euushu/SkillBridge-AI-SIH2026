@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SPARS - Portal for Academia–Industry Collaboration for Skill Mapping, Internships and Placement (Smart India Hackathon 2026 - SIH26044)">
+  <title>SPARS | Portal for Academia–Industry Collaboration (SIH 2026)</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans, Outfit, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/phone-mockup.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dbms.css">
+
+  <!-- QR Code Generator -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Html5 QR Scanner -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Cybernetic Dot Grid Mesh & Diffused Glowing Ambient Orbs -->
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+  <div class="ambient-blobs" aria-hidden="true">
+    <div class="blob blob-saffron"></div>
+    <div class="blob blob-cyan"></div>
+    <div class="blob blob-green"></div>
+  </div>
+
+  <!-- Master App Shell -->
+  <div class="app-container">
+
+    <!-- ======================================================================
+         SCREEN 1: AUTHENTICATION GATEWAY WITH VIRTUAL SMARTPHONE SIMULATOR
+         ====================================================================== -->
+    <div id="authScreenView" class="auth-page-container">
+      <div class="auth-split-layout">
+        
+        <!-- LEFT COLUMN: SPARS Web Application Login -->
+        <div class="auth-portal-col">
+          
+          <!-- Official SIH 2026 Header Strip -->
+          <div class="sih-official-title-header">
+            <div class="sih-title-wrap">
+              <img src="assets/sih-logo.svg" alt="SIH Logo" class="sih-mini-logo">
+              <span class="sih-event-text">Smart India Hackathon 2026</span>
+            </div>
+            <span class="sih-ps-badge">ID: SIH26044</span>
+          </div>
+
+          <!-- Master Glass Card -->
+          <div class="ultra-card auth-main-card">
+            
+            <div class="auth-header-center">
+              <div class="brand-emblem-wrap">
+                <img src="assets/sih-logo.svg" alt="SIH Brain Bulb Emblem" style="width: 100%; height: 100%;">
+              </div>
+              <h2 class="auth-title-brand gradient-text-sih">SPARS PORTAL</h2>
+              <p class="auth-ps-statement">
+                Portal for Academia–Industry Collaboration for Skill Mapping, Internships and Placement
+              </p>
+              <div class="auth-meta-pills">
+                <span class="pill-badge pill-sih">Theme: Smart Automation</span>
+                <span class="pill-badge pill-cyan">Category: Software</span>
+                <span class="pill-badge pill-purple">Team: SPARS</span>
+              </div>
+            </div>
+
+            <!-- Role Selector Tile Grid -->
+            <div class="role-picker-container">
+              <label class="role-picker-label">Select Operating Stakeholder Role</label>
+              <div class="role-picker-grid">
+                <div class="role-tile active" data-role="student">
+                  <div class="role-tile-icon">🎓</div>
+                  <div class="role-tile-name">Student Scholar</div>
+                  <div class="role-tile-desc">Skill Gap & Match</div>
+                </div>
+                <div class="role-tile" data-role="industry">
+                  <div class="role-tile-icon">🏢</div>
+                  <div class="role-tile-name">Industry Partner</div>
+                  <div class="role-tile-desc">Recruiter & MoUs</div>
+                </div>
+                <div class="role-tile" data-role="academia">
+                  <div class="role-tile-icon">🏛️</div>
+                  <div class="role-tile-name">Academic Dean</div>
+                  <div class="role-tile-desc">Curriculum Matrix</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Phone Input Section -->
+            <div id="phoneInputGroup" class="mobile-input-section">
+              <div class="mobile-label-row">
+                <label for="mobilePhoneInput">Enter Mobile Number</label>
+                <div id="carrierDetectDisplay" class="mobile-carrier-detected">
+                  <span class="live-pulse-dot"></span>
+                  <span>Jio 5G / Airtel (Auto-detected)</span>
+                </div>
+              </div>
+
+              <div class="mobile-input-box">
+                <div class="mobile-flag-prefix">
+                  <span>🇮🇳</span>
+                  <span>+91</span>
+                </div>
+                <input
+                  id="mobilePhoneInput"
+                  type="tel"
+                  class="mobile-raw-field"
+                  placeholder="98765 43210"
+                  maxlength="10"
+                  value="9876543210"
+                  autocomplete="tel"
+                >
+              </div>
+            </div>
+
+            <!-- 6-Digit OTP Verification Container -->
+            <div id="otpInputContainer" class="otp-verification-section">
+              <div class="otp-header-alert">
+                <span>Security code dispatched to <strong id="displayTargetPhone" class="otp-number-highlight">+91 9876543210</strong></span>
+              </div>
+
+              <div class="otp-grid-inputs">
+                <input type="text" class="otp-cell" maxlength="1" data-index="0" inputmode="numeric">
+                <input type="text" class="otp-cell" maxlength="1" data-index="1" inputmode="numeric">
+                <input type="text" class="otp-cell" maxlength="1" data-index="2" inputmode="numeric">
+                <input type="text" class="otp-cell" maxlength="1" data-index="3" inputmode="numeric">
+                <input type="text" class="otp-cell" maxlength="1" data-index="4" inputmode="numeric">
+                <input type="text" class="otp-cell" maxlength="1" data-index="5" inputmode="numeric">
+              </div>
+
+              <div class="otp-countdown-row">
+                <span id="otpTimerCountdown">Resend in 30s</span>
+                <button id="btnResendOtp" class="btn-resend-link" disabled>Resend SMS OTP</button>
+              </div>
+            </div>
+
+            <!-- Main Action Buttons -->
+            <button id="btnRequestOtp" class="btn-tactile btn-tactile-primary" style="width: 100%; height: 52px; font-size: 1.05rem;">
+              <span>📲</span> Send OTP to Mobile Phone
+            </button>
+
+            <button id="btnVerifyOtp" class="btn-tactile btn-tactile-saffron" style="width: 100%; height: 52px; font-size: 1.05rem; display: none;">
+              <span>🔓</span> Verify OTP & Continue
+            </button>
+
+            <!-- ============================================================
+                 STEP 2: REGISTRATION FORM (shown after OTP verification)
+                 ============================================================ -->
+            <div id="registrationStep" style="display: none; margin-top: 8px;">
+              <div class="reg-step-header">
+                <div class="reg-step-badge">✅ OTP Verified — Complete Your Profile</div>
+                <p style="font-size: 0.82rem; color: var(--text-muted); margin: 6px 0 16px;">Your data will be securely stored in the SPARS DBMS. User ID is auto-generated.</p>
+              </div>
+
+              <!-- Auto-Generated User ID Display -->
+              <div class="reg-field-group">
+                <label class="reg-field-label" for="regUserIdDisplay">
+                  <span>🪪</span> Your SPARS User ID
+                  <span class="reg-auto-badge">AUTO-GENERATED</span>
+                </label>
+                <div class="reg-id-display-box">
+                  <span id="regUserIdDisplay" class="reg-id-mono">USR-2026-XXXX</span>
+                  <span class="reg-id-lock-icon">🔒</span>
+                </div>
+              </div>
+
+              <!-- Full Name -->
+              <div class="reg-field-group">
+                <label class="reg-field-label" for="regFullNameInput">
+                  <span>👤</span> Full Name <span class="reg-required-star">*</span>
+                </label>
+                <input
+                  id="regFullNameInput"
+                  type="text"
+                  class="reg-text-input"
+                  placeholder="e.g. Aarav Kumar Sharma"
+                  maxlength="80"
+                  autocomplete="name"
+                >
+              </div>
+
+              <!-- Phone Number (read-only, pre-filled) -->
+              <div class="reg-field-group">
+                <label class="reg-field-label" for="regPhoneDisplay">
+                  <span>📱</span> Verified Mobile Number
+                  <span class="reg-auto-badge">OTP VERIFIED</span>
+                </label>
+                <input
+                  id="regPhoneDisplay"
+                  type="tel"
+                  class="reg-text-input reg-readonly-field"
+                  placeholder="+91 XXXXXXXXXX"
+                  readonly
+                >
+              </div>
+
+              <!-- College Name -->
+              <div class="reg-field-group">
+                <label class="reg-field-label" for="regCollegeInput">
+                  <span>🏛️</span> College / University Name <span class="reg-required-star">*</span>
+                </label>
+                <input
+                  id="regCollegeInput"
+                  type="text"
+                  class="reg-text-input"
+                  placeholder="e.g. Delhi Technological University (DTU)"
+                  maxlength="120"
+                  list="collegeDatalist"
+                  autocomplete="organization"
+                >
+                <datalist id="collegeDatalist">
+                  <option value="IIT Delhi"></option>
+                  <option value="IIT Bombay"></option>
+                  <option value="IIT Roorkee"></option>
+                  <option value="IIT Madras"></option>
+                  <option value="IIT Kanpur"></option>
+                  <option value="Delhi Technological University (DTU)"></option>
+                  <option value="NIT Trichy"></option>
+                  <option value="NIT Warangal"></option>
+                  <option value="BITS Pilani"></option>
+                  <option value="VIT Vellore"></option>
+                  <option value="Amity University"></option>
+                  <option value="Anna University"></option>
+                  <option value="Pune University (SPPU)"></option>
+                  <option value="Mumbai University"></option>
+                  <option value="Jadavpur University"></option>
+                </datalist>
+              </div>
+
+              <!-- Branch / Course -->
+              <div class="reg-field-group">
+                <label class="reg-field-label" for="regBranchInput">
+                  <span>📚</span> Branch / Course
+                </label>
+                <input
+                  id="regBranchInput"
+                  type="text"
+                  class="reg-text-input"
+                  placeholder="e.g. B.Tech in Computer Science & AI"
+                  maxlength="120"
+                >
+              </div>
+
+              <!-- DBMS Insert Preview -->
+              <div class="reg-dbms-preview" id="regDbmsPreview">
+                <div class="dbms-preview-header">
+                  <span>🗄️</span> Live DBMS Insert Preview
+                  <span class="pill-badge pill-cyan" style="font-size:0.65rem;">INSERT INTO users</span>
+                </div>
+                <pre id="regDbmsPreviewCode" class="dbms-preview-sql">-- Fill in your details above to preview the SQL INSERT</pre>
+              </div>
+
+              <!-- Submit Registration Button -->
+              <button id="btnCompleteRegistration" class="btn-tactile btn-tactile-primary" style="width: 100%; height: 52px; font-size: 1.05rem; margin-top: 8px;">
+                <span>🚀</span> Register &amp; Enter SPARS Portal
+              </button>
+            </div>
+
+            <!-- Quick Evaluator Logins for SIH Judges -->
+            <div class="judge-evaluator-tray">
+              <div class="judge-eval-title">⚡ Quick Hackathon Evaluator Demonstration</div>
+              <div class="judge-eval-btns">
+                <button id="btnDemoStudent" class="btn-tactile btn-tactile-secondary" style="padding: 8px 14px; font-size: 0.8rem;">
+                  🎓 Student View
+                </button>
+                <button id="btnDemoRecruiter" class="btn-tactile btn-tactile-secondary" style="padding: 8px 14px; font-size: 0.8rem;">
+                  🏢 Recruiter View
+                </button>
+                <button id="btnDemoAcademia" class="btn-tactile btn-tactile-secondary" style="padding: 8px 14px; font-size: 0.8rem;">
+                  🏛️ Dean / TPO View
+                </button>
+              </div>
+            </div>
+
+            <!-- Theme Toggle on Auth Screen -->
+            <div style="display: flex; justify-content: center; margin-top: 22px;">
+              <div class="segmented-theme-switch" title="Toggle Light / Dark Theme">
+                <div class="theme-tab-item light-tab">
+                  <span>☀️</span> Light
+                </div>
+                <div class="theme-tab-item dark-tab">
+                  <span>🌙</span> Dark
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: INTERACTIVE SMARTPHONE SIMULATOR -->
+        <div class="auth-phone-col">
+          <div class="phone-simulator-label">
+            <span>📱 User Mobile Phone Screen</span>
+            <span class="phone-simulator-badge">SIMULATOR</span>
+          </div>
+
+          <!-- Titanium Smartphone Chassis -->
+          <div id="smartphoneDevice" class="smartphone-frame">
+            <div class="phone-screen">
+              
+              <!-- Phone Status Notch Bar -->
+              <div class="phone-notch-bar">
+                <span id="phoneDigitalClock">09:41</span>
+                <div class="dynamic-island-pill">
+                  <div class="island-camera-dot"></div>
+                  <div class="island-sensor-dot"></div>
+                </div>
+                <div class="phone-icons-right">
+                  <span id="phoneCarrierText" style="font-size: 0.65rem;">Jio 5G</span>
+                  <span>📶</span>
+                  <span>98% 🔋</span>
+                </div>
+              </div>
+
+              <!-- State 1: Standby Phone Screen -->
+              <div id="phoneStandbyScreen" class="phone-standby-state">
+                <div class="standby-phone-icon">📲</div>
+                <div class="standby-phone-title">Smartphone Standby</div>
+                <div class="standby-phone-sub">
+                  Enter your 10-digit mobile number on the SPARS portal and click <strong>"Send OTP"</strong>.
+                  <br><br>
+                  The SMS verification message will arrive right here on this phone screen.
+                </div>
+              </div>
+
+              <!-- State 2: Messages App / SMS Chat Screen -->
+              <div id="phoneMessagesScreen" class="phone-inner-content" style="display: none;">
+                <div class="messages-app-header">
+                  <div class="messages-contact-info">
+                    <div class="contact-avatar">SP</div>
+                    <div class="contact-name-row">
+                      <div class="contact-sender-name">SPARS-GOV</div>
+                      <div class="contact-sender-sub">Govt of India (Verified)</div>
+                    </div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #64748b;">SMS</span>
+                </div>
+
+                <!-- Message Thread -->
+                <div class="messages-chat-scroll">
+                  <div class="chat-timestamp-badge">Today, SIH 2026 Security Service</div>
+                  
+                  <div class="incoming-sms-bubble">
+                    <div class="sms-gov-tag">
+                      <span>🛡️</span> OFFICIAL NOTIFICATION
+                    </div>
+                    <p class="sms-body-paragraph">
+                      Your verification OTP for SPARS Academia–Industry Collaboration Portal is:
+                    </p>
+                    <div class="sms-pin-banner">
+                      <span id="phoneSmsOtpCode" class="sms-pin-digits">482910</span>
+                      <button id="btnPhoneCopyOtp" class="btn-phone-copy-otp">
+                        📋 Copy & Fill
+                      </button>
+                    </div>
+                    <p style="font-size: 0.72rem; color: #94a3b8; line-height: 1.35;">
+                      Valid for 5 minutes. Do not share this OTP with anyone. Team SPARS (SIH26044).
+                    </p>
+                    <div id="phoneSmsTimestamp" class="sms-time-sub">Just now</div>
+                  </div>
+                </div>
+
+                <!-- Bottom Home Bar -->
+                <div class="phone-bottom-home">
+                  <div class="phone-home-indicator"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SCREEN 2: MAIN BESPOKE SPARS DASHBOARD (AFTER LOGIN)
+         ====================================================================== -->
+    <div id="mainPortalView" style="display: none; flex-direction: column; min-height: 100vh;">
+      
+      <!-- Top Main Navigation Bar -->
+      <header class="main-app-nav">
+        <div class="brand-emblem-header">
+          <div class="logo-icon-container">
+            <img src="assets/sih-logo.svg" alt="SIH 2026" style="width: 40px; height: 40px;">
+          </div>
+          <div class="brand-headers-text">
+            <h1>
+              SPARS PORTAL
+              <span class="pill-badge pill-sih" style="font-size: 0.65rem;">SIH26044</span>
+            </h1>
+            <p>National Academia–Industry Skill Mapping & Placement Engine</p>
+          </div>
+        </div>
+
+        <!-- Center Stakeholder Role Switcher -->
+        <nav class="role-pills-switcher" aria-label="Stakeholder Views">
+          <button class="role-pill-tab active" data-role="student">
+            <span>🎓</span> Student Portal
+          </button>
+          <button class="role-pill-tab" data-role="industry">
+            <span>🏢</span> Industry & Corporate
+          </button>
+          <button class="role-pill-tab" data-role="academia">
+            <span>🏛️</span> Academia & University
+          </button>
+        </nav>
+
+        <!-- Right Controls (DBMS Studio, Theme, Sound, Profile) -->
+        <div class="header-right-actions">
+          
+          <!-- DBMS Studio Modal Button -->
+          <button id="btnOpenDbmsStudio" class="btn-tactile btn-tactile-secondary" style="padding: 7px 14px; font-size: 0.82rem; gap: 6px;">
+            <span>🗄️</span> Live DBMS Studio
+          </button>
+
+          <!-- Theme Switcher -->
+          <div class="segmented-theme-switch" title="Toggle Theme">
+            <div class="theme-tab-item light-tab">
+              <span>☀️</span> Light
+            </div>
+            <div class="theme-tab-item dark-tab">
+              <span>🌙</span> Dark
+            </div>
+          </div>
+
+          <button id="soundToggleBtn" class="btn-icon-circle" type="button" title="Audio Sound Feedback">
+            🔔
+          </button>
+
+          <div class="user-identity-chip">
+            <div class="user-avatar-hex">AS</div>
+            <div class="user-chip-meta">
+              <span id="headerUserPhone" class="user-chip-title">+91 9876543210</span>
+              <span id="headerUserRole" class="user-chip-sub">Student Scholar</span>
+            </div>
+            <button id="btnLogout" class="btn-session-exit" title="Sign Out">
+              🚪
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Live Hackathon Status Ticker -->
+      <div class="sih-live-ticker">
+        <div class="ticker-item-left">
+          <span class="pill-badge pill-success">● AI Automation Active</span>
+          <span>Connected to SPARS Relational DBMS (SQLite Architecture) • Ministry of Ayush & AICTE Linked</span>
+        </div>
+        <div class="ticker-item-right">
+          <span>Theme: <strong>Smart Automation</strong></span>
+          <span>Team: <strong>SPARS</strong></span>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Viewport -->
+      <main class="dashboard-canvas">
+
+        <!-- ==================================================================
+             VIEW A: STUDENT PORTAL
+             ================================================================== -->
+        <section id="studentPortalView" class="view-panel active">
+          
+          <!-- Hero Section -->
+          <div class="ultra-card portal-hero-card">
+            <div class="hero-main-title">
+              <h2>Welcome back, Aarav Sharma! 🚀</h2>
+              <p>
+                Delhi Technological University (DTU) • B.Tech in Computer Science & AI (2026 Batch). 
+                Your verified SPARS Skill Passport is currently active and algorithmic matching is connecting you with live industry openings.
+              </p>
+            </div>
+            <div class="hero-stats-row">
+             <div class="hero-counter-box">
+               <div id="heroReadinessNum" class="hero-counter-num">82%</div>
+               <div class="hero-counter-label">Readiness Index</div>
+             </div>
+             <div class="hero-counter-box">
+               <div id="heroCgpaNum" class="hero-counter-num">8.84</div>
+               <div class="hero-counter-label">Verified CGPA</div>
+             </div>
+             <div class="hero-counter-box">
+               <div id="heroOffersNum" class="hero-counter-num">3</div>
+               <div class="hero-counter-label">Active Offers</div>
+             </div>
+           </div>
+          </div>
+
+          <!-- ================================================================
+               DBMS PROFILE RECORD CARD (shows User ID, Name, Phone, College)
+               ================================================================ -->
+          <div class="ultra-card student-profile-dbms-card">
+            <div class="card-top-title-row">
+              <div class="title-icon-bundle">
+                <div class="title-icon-badge" style="background: rgba(249,115,22,0.15); color: #f97316;">🪪</div>
+                <div>
+                  <h3>My SPARS Profile Record</h3>
+                  <p style="font-size: 0.78rem; color: var(--text-muted);">Data fetched live from SPARS Relational DBMS · Table: <code>users</code></p>
+                </div>
+              </div>
+              <button class="btn-tactile btn-tactile-secondary" style="padding:6px 12px; font-size:0.75rem;" onclick="window.sparsApp && window.sparsApp.ui && window.sparsApp.ui.openDbmsStudio()">
+                🗄️ Open DBMS
+              </button>
+              <button class="btn-tactile btn-tactile-primary" id="btnOpenQrScanner" style="padding:6px 14px; font-size:0.75rem;">
+                📷 QR Scanner / ID Card
+              </button>
+            </div>
+
+            <div class="profile-dbms-grid">
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">🪪 User ID</div>
+                <div class="profile-dbms-value mono" id="profileUserId">USR-2026-101</div>
+              </div>
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">👤 Full Name</div>
+                <div class="profile-dbms-value" id="profileFullName">Aarav Sharma</div>
+              </div>
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">📱 Mobile Number</div>
+                <div class="profile-dbms-value mono" id="profilePhone">+91 9876543210</div>
+              </div>
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">🏛️ College / University</div>
+                <div class="profile-dbms-value" id="profileCollege">Delhi Technological University (DTU)</div>
+              </div>
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">📚 Branch / Course</div>
+                <div class="profile-dbms-value" id="profileBranch">B.Tech in Computer Science &amp; AI</div>
+              </div>
+              <div class="profile-dbms-field">
+                <div class="profile-dbms-label">✅ Verification Status</div>
+                <div class="profile-dbms-value">
+                  <span class="pill-badge pill-success" style="font-size:0.70rem;">OTP VERIFIED · ACTIVE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini SQL query display -->
+            <div class="profile-sql-snippet">
+              <span style="color:#64748b; font-size:0.70rem; font-family:'JetBrains Mono',monospace;">
+                <span style="color:#7dd3fc;">SELECT</span> user_id, full_name, mobile_number, college
+                <span style="color:#7dd3fc;">FROM</span> users
+                <span style="color:#7dd3fc;">WHERE</span> mobile_number = '<span id="profileSqlPhone">9876543210</span>';
+              </span>
+            </div>
+          </div>
+
+          <!-- Row 1: AI Skill Gap & Placement Tracker -->
+          <div class="grid-2col-layout">
+            
+            <!-- AI Skill Gap Engine Card -->
+            <div class="ultra-card skill-engine-box">
+              <div class="card-top-title-row">
+                <div class="title-icon-bundle">
+                  <div class="title-icon-badge" style="background: rgba(2,132,199,0.15); color: #0284c7;">🧠</div>
+                  <div>
+                    <h3>AI Skill Gap & Target Role Compatibility</h3>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Real-time algorithmic comparison against 2026 industry requirements</p>
+                  </div>
+                </div>
+                <span class="pill-badge pill-cyan">Smart Automation</span>
+              </div>
+
+              <!-- Target Career Selector -->
+              <div class="skill-role-selector-bar">
+                <label for="studentTargetRoleSelect" style="font-size: 0.85rem; font-weight: 700;">Target Role:</label>
+                <select id="studentTargetRoleSelect" class="custom-role-dropdown">
+                  <!-- Populated dynamically via JS -->
+                </select>
+              </div>
+
+              <!-- Radial Gauge Visual Meter -->
+              <div class="radial-visual-tray">
+                <div class="radial-gauge-container">
+                  <svg viewBox="0 0 36 36" class="gauge-svg">
+                    <path class="gauge-bg-track"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                    <path id="skillMeterCircle" class="gauge-progress-bar"
+                      stroke-dasharray="78, 100"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    />
+                  </svg>
+                  <div class="gauge-center-caption">
+                    <div id="skillMeterNumber" class="gauge-val-big">78%</div>
+                    <div class="gauge-val-sub">Role Match</div>
+                  </div>
+                </div>
+
+                <div class="gauge-narrative">
+                  <h4 id="skillMeterRoleTitle">Full-Stack AI Solutions Engineer</h4>
+                  <p id="skillMeterRoleDesc">
+                    Requires competencies in modern reactive frameworks, backend microservices, and neural embeddings.
+                  </p>
+                  <button class="btn-tactile btn-tactile-primary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.sparsUI.openModal('learningPlanModal')">
+                    <span>✨</span> View AI Learning Pathway
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mastered vs Missing Split -->
+              <div class="skill-comparison-grid">
+                <div class="skill-column-box">
+                  <div class="skill-col-heading" style="color: var(--sih-green);">
+                    <span>✓</span> Mastered Competencies
+                  </div>
+                  <div id="studentMasteredSkillsList" class="skill-tags-cloud">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+
+                <div class="skill-column-box">
+                  <div class="skill-col-heading" style="color: var(--cyber-rose);">
+                    <span>✕</span> Missing Industry Demands
+                  </div>
+                  <div id="studentMissingSkillsList" class="skill-tags-cloud">
+                    <!-- Populated dynamically -->
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Application Pipeline & Timeline -->
+            <div class="ultra-card" style="padding: 26px;">
+              <div class="card-top-title-row">
+                <div class="title-icon-bundle">
+                  <div class="title-icon-badge" style="background: rgba(0,176,80,0.15); color: #00b050;">📊</div>
+                  <div>
+                    <h3>Placement & Internship Tracker</h3>
+                    <p style="font-size: 0.78rem; color: var(--text-muted);">Real-time status of your SPARS passport applications</p>
+                  </div>
+                </div>
+                <button class="btn-tactile btn-tactile-secondary" style="padding: 6px 14px; font-size: 0.82rem;" onclick="window.sparsUI.previewOfferLetter()">
+                  📜 Offer Letter
+                </button>
+              </div>
+
+              <div class="pipeline-steps-container">
+                <div class="pipeline-card-stage">
+                  <div class="stage-tag">Stage 1</div>
+                  <div class="stage-name">Applied</div>
+                  <div id="stepCountApplied" class="stage-count-metric">3</div>
+                </div>
+                <div class="pipeline-card-stage active">
+                  <div class="stage-tag">Stage 2</div>
+                  <div class="stage-name">Assessed</div>
+                  <div id="stepCountAssessment" class="stage-count-metric">3</div>
+                </div>
+                <div class="pipeline-card-stage active">
+                  <div class="stage-tag">Stage 3</div>
+                  <div class="stage-name">Interview</div>
+                  <div id="stepCountInterview" class="stage-count-metric">2</div>
+                </div>
+                <div class="pipeline-card-stage success">
+                  <div class="stage-tag">Stage 4</div>
+                  <div class="stage-name">Offered</div>
+                  <div id="stepCountOffer" class="stage-count-metric" style="color: var(--sih-green);">1</div>
+                </div>
+              </div>
+
+              <!-- Signed Passport Badge -->
+              <div style="margin-top: 24px; padding: 18px; background: var(--bg-surface-subtle); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <span style="font-size: 0.85rem; font-weight: 800;">Digital SPARS Passport #SIH-99201</span>
+                  <span class="pill-badge pill-success">Cryptographically Signed</span>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">
+                  Verified by Delhi Technological University Academic Council & Smart India Hackathon Autonomous Grid.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Section 2: Recommended Opportunities -->
+          <div style="margin-top: 14px;">
+            <div class="card-top-title-row">
+              <div>
+                <h3>Algorithmic Internship & Placement Matches</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Direct corporate listings sorted by compatibility with your mastered skills</p>
+              </div>
+              <div class="filter-tabs-row">
+                <button class="filter-tab active" data-filter="all">All Openings</button>
+                <button class="filter-tab" data-filter="high_match">High Match (80%+)</button>
+                <button class="filter-tab" data-filter="remote">Remote Roles</button>
+              </div>
+            </div>
+
+            <div id="studentOpportunitiesGrid" class="job-cards-grid">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ==================================================================
+             VIEW B: INDUSTRY & RECRUITER PORTAL
+             ================================================================== -->
+        <section id="industryPortalView" class="view-panel">
+          
+          <div class="ultra-card portal-hero-card">
+            <div class="hero-main-title">
+              <h2>Corporate Recruiter & Talent Portal 🏢</h2>
+              <p>
+                Connect with verified student talent across top Indian technical institutes. 
+                AI-driven skill matching filters the best-suited candidates with zero resume bias.
+              </p>
+            </div>
+            <button class="btn-tactile btn-tactile-primary" onclick="window.sparsUI.openModal('postJobModal')">
+              <span>➕</span> Post Internship / Opening
+            </button>
+          </div>
+
+          <!-- Industry Stats Cards -->
+          <div class="grid-4col-layout">
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Active Postings</div>
+              <div class="hero-counter-num">5 Listings</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Smart Automation & AI</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Candidate Applications</div>
+              <div class="hero-counter-num">142 Total</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">+28 this week</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">AI High Match (85%+)</div>
+              <div class="hero-counter-num" style="color: var(--sih-green);">38 Candidates</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Pre-screened & verified</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">MoUs Signed</div>
+              <div class="hero-counter-num" style="color: var(--cyber-purple);">12 Colleges</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Direct campus hiring</p>
+            </div>
+          </div>
+
+          <!-- Candidate Pool Matching Table -->
+          <div class="ultra-card" style="padding: 26px; margin-bottom: 30px;">
+            <div class="card-top-title-row">
+              <div>
+                <h3>AI Candidate Matcher & Pre-Screened Talent</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Direct access to student profiles with cryptographically verified skills</p>
+              </div>
+              <input
+                id="candidateSearchInput"
+                type="text"
+                class="form-control"
+                placeholder="🔍 Search candidate by skill, college, or name..."
+                style="max-width: 320px;"
+              >
+            </div>
+
+            <div class="candidate-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Candidate & Specialization</th>
+                    <th>College & Institute</th>
+                    <th>CGPA</th>
+                    <th>Verified Skills</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="recruiterCandidatesTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ==================================================================
+             VIEW C: ACADEMIA & UNIVERSITY PORTAL
+             ================================================================== -->
+        <section id="academiaPortalView" class="view-panel">
+          
+          <div class="ultra-card portal-hero-card">
+            <div class="hero-main-title">
+              <h2>Institutional & Academic Leadership Portal 🏛️</h2>
+              <p>
+                All India Institute of Ayurveda & Technology Consortium. 
+                Identify syllabus-to-industry gaps, track student placement ratios, and execute corporate MoUs.
+              </p>
+            </div>
+            <button class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.exportCurriculumReport()">
+              <span>📑</span> Export AICTE Reform Dossier
+            </button>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid-4col-layout">
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Total Enrolled Students</div>
+              <div class="hero-counter-num">1,280</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Across 6 engineering tracks</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Batch Placement Rate</div>
+              <div class="hero-counter-num" style="color: var(--sih-green);">91.4%</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Targeting 100% by Dec 2026</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Active Industry MoUs</div>
+              <div class="hero-counter-num" style="color: var(--cyber-blue);">18 Signed</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">120+ student slots guaranteed</p>
+            </div>
+            <div class="ultra-card hero-counter-box" style="text-align: left; padding: 22px;">
+              <div class="hero-counter-label">Average Stipend</div>
+              <div class="hero-counter-num">₹38,500</div>
+              <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">Per month for 6-mo internships</p>
+            </div>
+          </div>
+
+          <!-- Curriculum vs Industry 2026 Skill Gap Matrix -->
+          <div class="ultra-card curriculum-matrix-card">
+            <div class="card-top-title-row">
+              <div>
+                <h3>Curriculum vs Real-World Industry 2026 Gap Matrix</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Automated syllabus audit comparing academic courses with active corporate hiring requirements</p>
+              </div>
+              <span class="pill-badge pill-sih">Smart Audit Engine</span>
+            </div>
+
+            <div class="candidate-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Academic Subject</th>
+                    <th>Current College Syllabus</th>
+                    <th>Demanded in 2026 Industry</th>
+                    <th>Alignment Index</th>
+                    <th>Recommended Curriculum Action</th>
+                  </tr>
+                </thead>
+                <tbody id="curriculumTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Active MoUs & Corporate Tie-ups -->
+          <div class="ultra-card" style="padding: 26px;">
+            <div class="card-top-title-row">
+              <div>
+                <h3>Active Institutional Industry MoUs & Research Projects</h3>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">Framework for student internships, research capstones, and faculty exchange</p>
+              </div>
+              <button class="btn-tactile btn-tactile-primary" style="padding: 8px 16px; font-size: 0.85rem;" onclick="window.sparsUI.showToast('info', 'New MoU Draft', 'Creating new Industry-Academia MoU template...')">
+                <span>➕</span> Draft New MoU
+              </button>
+            </div>
+
+            <div class="candidate-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Industry Partner</th>
+                    <th>Specialization Domain</th>
+                    <th>MoU Duration</th>
+                    <th>Reserved Internship Slots</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="mouTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </section>
+
+      </main>
+
+    </div>
+
+  </div>
+
+  <!-- ======================================================================
+       MODAL: LIVE DBMS STUDIO & SQL EXPLORER
+       ====================================================================== -->
+  <div id="dbmsStudioModal" class="modal-overlay">
+    <div class="modal-window dbms-modal-window">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.4rem;">🗄️</span>
+          <div>
+            <h3>SPARS Relational DBMS Studio</h3>
+            <p style="font-size: 0.75rem; color: var(--text-muted);">Active In-Browser Relational SQLite Architecture • ACID Transactions</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="window.sparsUI.closeModal('dbmsStudioModal')">✕</button>
+      </div>
+
+      <div class="modal-body" style="padding: 16px;">
+        <div class="dbms-layout-grid">
+          
+          <!-- DBMS Sidebar: Relational Tables List -->
+          <div class="dbms-tables-sidebar">
+            <div class="dbms-sidebar-heading">
+              <span>Database Tables</span>
+              <span class="pill-badge pill-success" style="font-size: 0.65rem;">CONNECTED</span>
+            </div>
+
+            <div class="dbms-table-item active" data-table="users">
+              <span>users</span>
+              <span id="dbmsCount_users" class="dbms-badge-count">3</span>
+            </div>
+            <div class="dbms-table-item" data-table="sms_otp_logs">
+              <span>sms_otp_logs</span>
+              <span id="dbmsCount_sms_otp_logs" class="dbms-badge-count">1</span>
+            </div>
+            <div class="dbms-table-item" data-table="students">
+              <span>students</span>
+              <span id="dbmsCount_students" class="dbms-badge-count">3</span>
+            </div>
+            <div class="dbms-table-item" data-table="jobs">
+              <span>jobs</span>
+              <span id="dbmsCount_jobs" class="dbms-badge-count">3</span>
+            </div>
+            <div class="dbms-table-item" data-table="applications">
+              <span>applications</span>
+              <span id="dbmsCount_applications" class="dbms-badge-count">3</span>
+            </div>
+            <div class="dbms-table-item" data-table="curriculum_audit">
+              <span>curriculum_audit</span>
+              <span id="dbmsCount_curriculum_audit" class="dbms-badge-count">3</span>
+            </div>
+            <div class="dbms-table-item" data-table="mous">
+              <span>mous</span>
+              <span id="dbmsCount_mous" class="dbms-badge-count">2</span>
+            </div>
+
+            <div style="margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--border-subtle);">
+              <button id="btnExportDbmsSql" class="btn-tactile btn-tactile-secondary" style="width: 100%; font-size: 0.75rem; padding: 6px;">
+                📥 Export SQL Dump
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Pane: SQL Query Editor & Table Output -->
+          <div class="dbms-main-pane">
+            
+            <!-- SQL Console -->
+            <div class="dbms-sql-editor-box">
+              <div class="sql-editor-header">
+                <span>SQL Query Terminal</span>
+                <span id="dbmsQueryExecutionTime" class="query-execution-stat">✓ Query ready</span>
+              </div>
+              <textarea id="dbmsSqlInput" class="sql-input-textarea" spellcheck="false">SELECT * FROM users;</textarea>
+              <div class="sql-actions-bar">
+                <span style="font-size: 0.72rem; color: var(--text-muted);">Try: SELECT * FROM students; OR SELECT * FROM sms_otp_logs;</span>
+                <button id="btnRunDbmsSql" class="btn-tactile btn-tactile-primary" style="padding: 6px 14px; font-size: 0.8rem;">
+                  ▶ Run SQL Query
+                </button>
+              </div>
+            </div>
+
+            <!-- Table Output View -->
+            <div class="dbms-results-container">
+              <table class="dbms-results-table">
+                <thead id="dbmsTableHead"></thead>
+                <tbody id="dbmsTableBody"></tbody>
+              </table>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.closeModal('dbmsStudioModal')">Close Console</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: AI LEARNING ROADMAP MODAL
+       ====================================================================== -->
+  <div id="learningPlanModal" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3>🎯 Personalized AI Skill Learning Roadmap</h3>
+        <button class="modal-close-btn" onclick="window.sparsUI.closeModal('learningPlanModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">
+          The SPARS Smart Automation engine has mapped your missing competencies to certified government and academic micro-courses. Completing these upgrades your readiness score to 100%.
+        </p>
+        <div id="learningRoadmapList">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.closeModal('learningPlanModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: POST NEW INTERNSHIP MODAL (FOR RECRUITERS)
+       ====================================================================== -->
+  <div id="postJobModal" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3>Post Internship / Job Opening</h3>
+        <button class="modal-close-btn" onclick="window.sparsUI.closeModal('postJobModal')">✕</button>
+      </div>
+      <form id="postJobForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="postJobTitle">Role / Position Title</label>
+            <input type="text" id="postJobTitle" class="form-control" placeholder="e.g. AI Systems Engineering Intern" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="postJobCompany">Company / Organization Name</label>
+            <input type="text" id="postJobCompany" class="form-control" placeholder="e.g. Bharat Tech Innovators Pvt Ltd" required>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label class="form-label" for="postJobLocation">Location / Mode</label>
+              <input type="text" id="postJobLocation" class="form-control" placeholder="e.g. Bengaluru (Hybrid)" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="postJobStipend">Stipend / CTC</label>
+              <input type="text" id="postJobStipend" class="form-control" placeholder="e.g. ₹45,000 / mo" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="postJobSkills">Required Skills (comma separated for AI matching)</label>
+            <input type="text" id="postJobSkills" class="form-control" placeholder="e.g. Python, Docker, React, Machine Learning" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.closeModal('postJobModal')">Cancel</button>
+          <button type="submit" class="btn-tactile btn-tactile-primary">Publish to DBMS</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: CANDIDATE DOSSIER MODAL
+       ====================================================================== -->
+  <div id="candidateDossierModal" class="modal-overlay">
+    <div class="modal-window">
+      <div class="modal-header">
+        <h3 id="dossierCandidateName">Candidate Dossier</h3>
+        <button class="modal-close-btn" onclick="window.sparsUI.closeModal('candidateDossierModal')">✕</button>
+      </div>
+      <div class="modal-body" id="dossierModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.closeModal('candidateDossierModal')">Close</button>
+        <button class="btn-tactile btn-tactile-primary" onclick="window.sparsUI.showToast('success', 'Offer Extended', 'Digital offer packet dispatched to student portal'); window.sparsUI.closeModal('candidateDossierModal');">
+          Issue Direct Offer
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: SIMULATED OFFER LETTER MODAL
+       ====================================================================== -->
+  <div id="offerLetterModal" class="modal-overlay">
+    <div class="modal-window" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3>Verified Digital Offer Letter Preview</h3>
+        <button class="modal-close-btn" onclick="window.sparsUI.closeModal('offerLetterModal')">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="offer-letter-doc">
+          <div class="offer-letter-header">
+            <div class="offer-company-title">BHARAT TECH INNOVATORS PVT. LTD.</div>
+            <div style="font-size: 0.85rem; color: #64748b;">Smart India Hackathon Corporate Partner • SIH26044</div>
+          </div>
+          <div class="offer-date-ref">
+            <span>Ref: BTI/HR/2026/SPARS-881</span>
+            <span>Date: September 18, 2026</span>
+          </div>
+          <div class="offer-body-text">
+            Dear <strong>Aarav Sharma</strong>,<br><br>
+            Following your verified Skill Passport assessment via the <strong>SPARS Academia-Industry Collaboration Portal</strong>, we are pleased to offer you the position of <strong>Full-Stack AI Solutions Intern</strong> at Bharat Tech Innovators.
+            <br><br>
+            <strong>Terms of Internship:</strong><br>
+            • Monthly Stipend: <strong>₹45,000 / month</strong><br>
+            • Duration: <strong>6 Months (Extendable to Full-Time at ₹16 LPA)</strong><br>
+            • Work Location: <strong>Bengaluru (Hybrid)</strong><br>
+            • Academic Credits: Eligible for 12 University Credits under National Education Policy (NEP) 2020.
+          </div>
+          <div class="offer-sign-footer">
+            <div>
+              <strong>Head of University Talent</strong><br>
+              Bharat Tech Innovators
+            </div>
+            <div style="text-align: right;">
+              <span class="badge badge-success">Cryptographically Verified</span><br>
+              <small>SPARS Portal SIH 2026</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-tactile btn-tactile-secondary" onclick="window.sparsUI.closeModal('offerLetterModal')">Close</button>
+        <button class="btn-tactile btn-tactile-primary" onclick="window.sparsUI.showToast('success', 'Offer Accepted!', 'Signed acceptance letter submitted to employer.'); window.sparsUI.closeModal('offerLetterModal');">
+          Accept Offer Letter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: QR SCANNER & DIGITAL SKILL PASSPORT
+       ====================================================================== -->
+  <div id="qrScannerModal" class="modal-overlay">
+    <div class="modal-window" style="max-width: 820px;">
+      <div class="modal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:1.4rem;">📷</span>
+          <div>
+            <h3>SPARS Digital Skill Passport &amp; QR Scanner</h3>
+            <p style="font-size:0.74rem; color:var(--text-muted);">Scan a SPARS QR code to fetch student profile from DBMS</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCloseQrModal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="qr-modal-layout">
+
+          <!-- LEFT: Digital ID Card + Generated QR -->
+          <div class="qr-id-card-col">
+            <div class="digital-id-card" id="digitalIdCard">
+              <div class="id-card-header">
+                <div style="font-size:0.65rem; font-weight:900; letter-spacing:0.1em; color:rgba(255,255,255,0.7); text-transform:uppercase;">Smart India Hackathon 2026</div>
+                <div style="font-weight:900; font-size:1rem; color:#fff; letter-spacing:0.05em;">SPARS SKILL PASSPORT</div>
+              </div>
+
+              <div class="id-card-body">
+                <div class="id-card-avatar" id="idCardAvatar">AS</div>
+                <div class="id-card-info">
+                  <div class="id-card-name" id="idCardName">Aarav Sharma</div>
+                  <div class="id-card-college" id="idCardCollege">Delhi Technological University</div>
+                  <div class="id-card-branch" id="idCardBranch">B.Tech CS &amp; AI • 2026</div>
+                </div>
+              </div>
+
+              <div class="id-card-qr-row">
+                <div id="studentQrCodeCanvas" style="background:#fff; padding:6px; border-radius:6px; width:90px; height:90px; display:flex; align-items:center; justify-content:center;">
+                  <!-- QR generated here -->
+                </div>
+                <div class="id-card-passport-info">
+                  <div style="font-size:0.65rem; color:rgba(255,255,255,0.6);">User ID</div>
+                  <div class="id-card-uid" id="idCardUserId">USR-2026-101</div>
+                  <div style="font-size:0.65rem; color:rgba(255,255,255,0.6); margin-top:6px;">Phone</div>
+                  <div class="id-card-uid" id="idCardPhone">+91 9876543210</div>
+                  <div class="id-card-verified-stamp">✅ OTP VERIFIED</div>
+                </div>
+              </div>
+            </div>
+
+            <button id="btnDownloadIdCard" class="btn-tactile btn-tactile-secondary" style="width:100%; margin-top:10px; font-size:0.80rem;">
+              📥 Download Digital ID Card
+            </button>
+          </div>
+
+          <!-- RIGHT: QR Scanner -->
+          <div class="qr-scanner-col">
+            <div class="qr-scanner-label">
+              <span>📡 Scan SPARS QR Code</span>
+              <span class="pill-badge pill-cyan" style="font-size:0.65rem;">CAMERA REQUIRED</span>
+            </div>
+
+            <!-- Camera viewport -->
+            <div id="qrReaderViewport" style="width:100%; min-height:240px; border-radius:12px; overflow:hidden; background:#0f172a; border:2px dashed rgba(125,211,252,0.3);">
+              <div id="qrReaderPlaceholder" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:240px; gap:12px; color:#64748b;">
+                <div style="font-size:2.5rem;">📷</div>
+                <div style="font-size:0.85rem; font-weight:600;">Click Start Scanner to activate camera</div>
+              </div>
+              <div id="qr-reader" style="width:100%;"></div>
+            </div>
+
+            <div style="display:flex; gap:8px; margin-top:10px;">
+              <button id="btnStartQrScan" class="btn-tactile btn-tactile-primary" style="flex:1; font-size:0.82rem;">
+                ▶ Start Scanner
+              </button>
+              <button id="btnStopQrScan" class="btn-tactile btn-tactile-secondary" style="flex:1; font-size:0.82rem;" disabled>
+                ■ Stop
+              </button>
+            </div>
+
+            <!-- Scan Result -->
+            <div id="qrScanResultBox" style="display:none; margin-top:14px;" class="ultra-card">
+              <div style="font-size:0.74rem; font-weight:800; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;">✅ Scan Result — Student Found in DBMS</div>
+              <div id="qrScanResultContent"></div>
+            </div>
+
+            <!-- Manual lookup fallback -->
+            <div style="margin-top:16px; padding-top:14px; border-top:1px dashed var(--border-subtle);">
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:6px; font-weight:700;">🔍 Manual Phone Lookup</div>
+              <div style="display:flex; gap:8px;">
+                <input id="qrManualLookupInput" type="tel" class="reg-text-input" placeholder="Enter 10-digit phone" maxlength="10" style="flex:1; height:38px; font-size:0.85rem;">
+                <button id="btnManualQrLookup" class="btn-tactile btn-tactile-saffron" style="padding:0 16px; font-size:0.82rem; height:38px;">
+                  Lookup
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-tactile btn-tactile-secondary" id="btnCloseQrModalFooter">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Tray -->
+  <div id="toastNotificationTray" class="toast-container"></div>
+
+  <!-- Application Bootstrap -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

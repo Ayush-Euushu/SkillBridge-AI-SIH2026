@@ -1,0 +1,410 @@
+/* ==========================================================================
+   INTERACTIVE COMPONENTS, MODALS & TOAST NOTIFICATIONS
+   ========================================================================== */
+
+/* Modern Native Dialog / Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-backdrop);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-window {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.94) translateY(10px);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.active .modal-window {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  background: var(--bg-surface-elevated);
+  z-index: 2;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.modal-close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--accent-rose);
+  border-color: var(--accent-rose);
+}
+
+.modal-body {
+  padding: 24px;
+  flex: 1;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px 24px;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-surface-subtle);
+  border-bottom-left-radius: var(--radius-xl);
+  border-bottom-right-radius: var(--radius-xl);
+}
+
+/* Form Styles within Modals */
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-medium);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+textarea.form-control {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* Toast Notification Floating Tray */
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--bg-surface-elevated);
+  border: 1.5px solid var(--border-medium);
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  max-width: 380px;
+  pointer-events: auto;
+  animation: slideInRight 0.3s ease-out;
+  transition: all var(--transition-normal);
+}
+
+.toast.success {
+  border-left: 5px solid var(--sih-green);
+}
+
+.toast.info {
+  border-left: 5px solid var(--accent-primary);
+}
+
+.toast.warning {
+  border-left: 5px solid var(--sih-saffron);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+}
+
+.toast-message-box {
+  flex: 1;
+}
+
+.toast-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.toast-body {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Certificate & Offer Letter Preview Styles */
+.offer-letter-doc {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 28px;
+  border-radius: var(--radius-md);
+  border: 2px solid #e2e8f0;
+  font-family: 'Times New Roman', serif;
+  box-shadow: var(--shadow-md);
+}
+
+.offer-letter-header {
+  text-align: center;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.offer-company-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.offer-date-ref {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #475569;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+}
+
+.offer-body-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.offer-sign-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px dashed #94a3b8;
+  font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   QR SCANNER MODAL & DIGITAL ID CARD
+   ========================================================================== */
+
+.qr-modal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  min-height: 400px;
+}
+
+@media (max-width: 680px) {
+  .qr-modal-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.qr-id-card-col, .qr-scanner-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Digital Skill Passport ID Card */
+.digital-id-card {
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 40%, #0d1b2a 100%);
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(125,211,252,0.15);
+  position: relative;
+  border: 1px solid rgba(125,211,252,0.2);
+}
+
+.digital-id-card::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(249,115,22,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.id-card-header {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.id-card-body {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 16px 12px;
+}
+
+.id-card-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f97316, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #fff;
+  font-family: var(--font-brand);
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.id-card-info {
+  flex: 1;
+}
+
+.id-card-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: var(--font-brand);
+  margin-bottom: 3px;
+}
+
+.id-card-college {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 600;
+}
+
+.id-card-branch {
+  font-size: 0.70rem;
+  color: rgba(249,115,22,0.9);
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.id-card-qr-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.id-card-passport-info {
+  flex: 1;
+}
+
+.id-card-uid {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #7dd3fc;
+  letter-spacing: 0.03em;
+}
+
+.id-card-verified-stamp {
+  display: inline-block;
+  background: rgba(16,185,129,0.2);
+  border: 1px solid rgba(16,185,129,0.4);
+  color: #10b981;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* QR Scanner column */
+.qr-scanner-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+/* Override html5-qrcode default styles */
+#qr-reader video {
+  border-radius: 10px !important;
+}
+
+#qr-reader__dashboard_section_swaplink,
+#qr-reader__header_message {
+  display: none !important;
+}
